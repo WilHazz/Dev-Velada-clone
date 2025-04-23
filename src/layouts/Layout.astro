@@ -43,9 +43,9 @@ import Footer from "../components/Footer.astro";
   <body>
     <Header />
     <main>
-      <slot />
+      <slot /><!-- Se renderiza la ruta que estamos viendo -->
     </main>
-    <!-- Se renderiza la ruta que estamos viendo -->
+
     <Footer />
   </body>
 </html>
@@ -58,5 +58,8 @@ import Footer from "../components/Footer.astro";
     height: 100%;
     background: #f19fca;
     font-family: "Anisette";
+  }
+  main {
+    min-height: 100vh;
   }
 </style>
