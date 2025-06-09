@@ -1,4 +1,10 @@
-<footer class="relative w-screen h-[400px]">
+---
+import X from "../assets/svg/x.svg";
+import Instagram from "../assets/svg/instagram.svg";
+import Github from "../assets/svg/github.svg";
+---
+
+<footer class="relative w-screen h-[400px] pb-32">
   <div
     class="absolute inset-0 bg-[url('/images/footer.webp')] bg-cover bg-bottom
     [mask-image:linear-gradient(transparent,black_50%)]"
@@ -8,14 +14,14 @@
     class="relative flex h-full flex-col items-center justify-center
       text-[#2a1f26]"
   >
-    <div class="footer-content text-white">
-      <p>© 2025 your company. All rights reserved.</p>
+    <div class="footer-content">
+      <p>© 2025 La Velada del año. Todos los derechos reservados.</p>
     </div>
 
-    <div class="social-links text-white">
-      <a href="https://twitter-links" target="_blank">Twitter</a>
-      <a href="https://twitter-links" target="_blank">Facebook</a>
-      <a href="https://twitter-links" target="_blank">Instagram</a>
+    <div class="flex flex-row gap-x-2 items-center justify-center mt-4">
+      <a href="https://twitter-links" target="_blank"><X /></a>
+      <a href="https://twitter-links" target="_blank"><Instagram /></a>
+      <a href="https://twitter-links" target="_blank"><Github /></a>
     </div>
   </div>
 </footer>
