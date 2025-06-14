@@ -7,26 +7,30 @@ type SponsorId =
 | "grefusa"
 | "maxibon"
 | "infojobs"
-| "coca-cola"
+| "cocacola"
 | "mahou"
 | "nothing"
 
 type SponsorName = 
-| "vicio"
-| "revolut"
-| "alsa"
-| "spotify"
-| "cerave"
-| "grefusa"
-| "maxibon"
-| "infojobs"
-| "coca-cola"
-| "mahou"
-| "nothing"
+| "Vicio"
+| "Revolut"
+| "Alsa"
+| "Spotify"
+| "Cerave"
+| "Grefusa"
+| "Maxibon"
+| "Infojobs"
+| "Coca-cola"
+| "Mahou"
+| "Nothing"
 
 export interface Sponsors {
     id: SponsorId
     name: SponsorName
-    logo: string
     url: string
+    image: {
+        logo: any
+        width: number
+        height: number
+    }
 }
