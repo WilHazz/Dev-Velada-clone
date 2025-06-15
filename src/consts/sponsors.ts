@@ -35,7 +35,7 @@ export const SPONSORS: Sponsors[] = [
         }, 
     },
     {
-        id: "cocacola",
+        id: "coca-cola",
         name: "Coca-cola",
         url: "https://www.coca-cola.es/",
         image: {

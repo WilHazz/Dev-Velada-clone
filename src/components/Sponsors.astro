@@ -1,1 +1,35 @@
-<section id="sponsors"></section>
+---
+import { SPONSORS } from "../consts/sponsors";
+
+const firstRow = SPONSORS.slice(0, 5);
+const secondRow = SPONSORS.slice(5);
+---
+
+<section id="sponsors">
+  <div class="grid grid-cols-5 gap-4">
+    {
+      firstRow.map((sponsor) => (
+        <a
+          href={sponsor.url}
+          target="_blank"
+          class="size-10 hover:scale-125 transition"
+        >
+          <img src={sponsor.image.logo} alt={sponsor.name} />
+        </a>
+      ))
+    }
+  </div>
+  <div class="grid grid-cols-6 gap-4">
+    {
+      secondRow.map((sponsor) => (
+        <a
+          href={sponsor.url}
+          target="_blank"
+          class="size-10 hover:scale-125 transition"
+        >
+          <img src={sponsor.image.logo} alt={sponsor.name} />
+        </a>
+      ))
+    }
+  </div>
+</section>

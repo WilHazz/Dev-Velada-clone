@@ -7,7 +7,7 @@ type SponsorId =
 | "grefusa"
 | "maxibon"
 | "infojobs"
-| "cocacola"
+| "coca-cola"
 | "mahou"
 | "nothing"
 
