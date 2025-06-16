@@ -25,12 +25,13 @@ type SponsorName =
 | "Nothing"
 
 export interface Sponsors {
-    id: SponsorId
-    name: SponsorName
-    url: string
-    image: {
-        logo: any
-        width: number
-        height: number
-    }
+  id: SponsorId
+  name: SponsorName
+  url: string
+  label: string
+  image: {
+    logo: any
+    width: number
+    height: number
+  }
 }

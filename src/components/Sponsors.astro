@@ -5,31 +5,44 @@ const firstRow = SPONSORS.slice(0, 5);
 const secondRow = SPONSORS.slice(5);
 ---
 
-<section id="sponsors">
-  <div class="grid grid-cols-5 gap-4">
+<section id="sponsors" class="mx-auto max-w-xl py-36">
+  <h2 class="mb-4 text-4xl font-light text-center">
+    <strong class="font-normal"> Patrocinadores</strong> del evento
+  </h2>
+  <div class="flex justify-around gap-4 flez-wrap w-full">
     {
-      firstRow.map(({ url, image, name }) => (
+      firstRow.map(({ url, image, name, label }) => (
         <a
           href={url}
           target="_blank"
+          aria-label={label ?? name}
           rel="noopener noreferrer"
           class="size-14 hover:scale-125 transition text-[#2a1f26] flex justify-center items-center"
         >
-          <image.logo class="h-14 w-auto" />
+          <image.logo
+            width={image.width}
+            height={image.height}
+            class="h-14 w-auto"
+          />
         </a>
       ))
     }
   </div>
-  <div class="grid grid-cols-6 gap-4">
+  <div class="flex justify-around gap-4 w-full flex-wrap">
     {
-      secondRow.map(({ url, image, name }) => (
+      secondRow.map(({ url, image, name, label }) => (
         <a
           href={url}
           target="_blank"
+          aria-label={label ?? name}
           rel="noopener noreferrer"
           class="size-14 hover:scale-125 transition text-[#2a1f26] flex justify-center items-center"
         >
-          <image.logo class="h-14 w-auto" />
+          <image.logo
+            width={image.width}
+            height={image.height}
+            class="h-14 w-auto"
+          />
         </a>
       ))
     }
