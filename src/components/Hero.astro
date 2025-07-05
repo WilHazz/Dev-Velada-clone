@@ -1,3 +1,8 @@
+---
+import { FIGHTERS } from "../consts/fighters";
+import BoxerCard from "./BoxerCard.astro";
+---
+
 <section class="relative flex min-h-screen w-full">
   <div
     class="bg-[url('/images/hero.png')] bg-cover bg-center w-full mask-fade-bottom absolute inset-0"
@@ -39,6 +44,12 @@
           TWITCH.TV<br /><strong>IBAI</strong>
         </a>
       </h3>
+    </div>
+    <!-- Fighters -->
+    <div class="relative flex flex-col items-center justify-end p-8">
+      <div class="flex flex-wrap gap-2 justify-center">
+        {FIGHTERS.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+      </div>
     </div>
   </div>
 </section>
