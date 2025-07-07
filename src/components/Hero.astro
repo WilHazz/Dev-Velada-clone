@@ -1,6 +1,11 @@
 ---
 import { FIGHTERS } from "../consts/fighters";
 import BoxerCard from "./BoxerCard.astro";
+
+const firstRow = FIGHTERS.slice(0, 6); //es para poner los primeros 3 y 3 que en total son 6, si queremos poner 8 entonces van de 4 y 4
+const leftRow = firstRow.slice(0, 3); // en la izquierda sale los primeros 3
+const rightRow = firstRow.slice(3); // en la derecha los otros 3
+const secondRow = FIGHTERS.slice(6);
 ---
 
 <section class="relative flex min-h-screen w-full">
@@ -11,7 +16,7 @@ import BoxerCard from "./BoxerCard.astro";
   <div class="relative flex flex-col items-center p-8 w-full text-center">
     <div
       id="landing"
-      class="absolute inset-0 flex flex-col items-center w-full py-20"
+      class="absolute inset-0 flex flex-col items-center w-full py-2"
     >
       <h3
         class="font-light text-theme-seashell leading-[100%] mt-4 animate-fade-in animate-delay-300"
@@ -46,9 +51,20 @@ import BoxerCard from "./BoxerCard.astro";
       </h3>
     </div>
     <!-- Fighters -->
-    <div class="relative flex flex-col items-center justify-end p-8">
+    <div
+      class="relative flex flex-col items-center justify-end p-1 h-full w-full max-w-6xl gap-4"
+    >
+      <div class="flex flex-wrap gap-2 justify-between w-full px-4">
+        <!-- Se parar las imagenes en 2 filas -->
+        <div class="flex flex-wrap gap-2 justify-start">
+          {leftRow.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+        </div>
+        <div class="flex flex-wrap gap-2 justify-end">
+          {rightRow.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+        </div>
+      </div>
       <div class="flex flex-wrap gap-2 justify-center">
-        {FIGHTERS.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
+        {secondRow.map(({ id, name }) => <BoxerCard id={id} name={name} />)}
       </div>
     </div>
   </div>
