@@ -50,6 +50,27 @@ const secondRow = FIGHTERS.slice(6);
         </a>
       </h3>
     </div>
+
+    <div
+      id="fighter-container"
+      class="pointer-events-none absolute inset-0 flex flex-col items-center"
+    >
+      <div
+        class="relative top-0 mx-auto h-20 flex w-full items-center justify-center"
+      >
+        {
+          FIGHTERS.map(({ id, name }) => (
+            <img
+              src={`/images/fighters/text/${id}.png`}
+              loading="lazy"
+              alt={name}
+              decoding="async"
+              class="w-auto h-full"
+            />
+          ))
+        }
+      </div>
+    </div>
     <!-- Fighters -->
     <div
       class="relative flex flex-col items-center justify-end p-1 h-full w-full max-w-6xl gap-4"
