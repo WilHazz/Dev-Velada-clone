@@ -3,13 +3,14 @@ const { id, name } = Astro.props;
 ---
 
 <a
-  href={"/peleador/${id}.png"}
-  class="inline-block transition hover:-translate-y-3 w-10 sm:w-14 md:w-16 lg:w-24 xl:w-26 group relative rounded overflow-hidden"
+  class="boxer-card inline-block transition hover:-translate-y-3 w-10 sm:w-14 md:w-16 lg:w-24 xl:w-26 group relative rounded overflow-hidden"
+  href={`/peleador/${id}.png`}
+  data-id={id}
 >
   <img
     class="aspect-[900/1200] h-full w-full object-cover"
     src={`/images/fighters/cards/${id}.png`}
-    alt={name}
+    alt={`Tarjeta del boxeador ${name}`}
     decoding="async"
   />
   <div
@@ -19,3 +20,17 @@ const { id, name } = Astro.props;
     <h3 class="text-theme-tickle-me-pink text-sm">{name}</h3>
   </div>
 </a>
+
+<script>
+  const boxerCards = document.querySelectorAll(".boxer-card");
+
+  boxerCards.forEach((singleBoxerCard) => {
+    singleBoxerCard.addEventListener("mouseover", () => {
+      const id = singleBoxerCard.getAttribute("data-id");
+      if (id) {
+        const event = new CustomEvent("boxer-card-hovered", { detail: { id } });
+        document.dispatchEvent(event);
+      }
+    });
+  });
+</script>

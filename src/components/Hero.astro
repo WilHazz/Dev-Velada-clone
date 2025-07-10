@@ -27,6 +27,7 @@ const secondRow = FIGHTERS.slice(6);
         <img
           class="w-64 h-auto z-20 relative"
           src="/images/logo.png"
+          fetchpriority="high"
           alt="Logo Velada V"
           decoding="async"
         />
@@ -50,22 +51,42 @@ const secondRow = FIGHTERS.slice(6);
         </a>
       </h3>
     </div>
+    <!-- Fighter Container contiene el texto y la imagen big-->
 
     <div
       id="fighter-container"
       class="pointer-events-none absolute inset-0 flex flex-col items-center"
     >
+      <!-- Fighter Text -->
       <div
-        class="relative top-0 mx-auto h-20 flex w-full items-center justify-center"
+        class="relative top-24 mx-auto h-20 flex w-full items-center justify-center"
       >
         {
           FIGHTERS.map(({ id, name }) => (
             <img
+              data-id={`hero-text-${id}`}
               src={`/images/fighters/text/${id}.png`}
-              loading="lazy"
               alt={name}
               decoding="async"
-              class="w-auto h-full"
+              class="w-auto h-full absolute hidden mask-fade-text"
+              fetchpriority="low"
+            />
+          ))
+        }
+      </div>
+      <!-- Imagen Big -->
+      <div
+        class="mask-fade-bottom relative bottom-0 mx-auto h-[80vh] flex w-full items-center justify-center"
+      >
+        {
+          FIGHTERS.map(({ id, name }) => (
+            <img
+              data-id={`hero-image-${id}`}
+              src={`/images/fighters/big/${id}.png`}
+              alt={name}
+              decoding="async"
+              class="w-auto h-full absolute hidden"
+              fetchpriority="low"
             />
           ))
         }
@@ -90,3 +111,46 @@ const secondRow = FIGHTERS.slice(6);
     </div>
   </div>
 </section>
+
+<style>
+  .mask-fade-text {
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 5%,
+      black 95%,
+      transparent 100%
+    );
+  }
+</style>
+
+<script>
+  const $landing = document.querySelector("#landing");
+
+  let currentFighterId: string | null = null;
+  document.addEventListener("boxer-card-hovered", (event: Event) => {
+    const customEvent = event as CustomEvent<{ id: string }>;
+    const id = customEvent.detail.id;
+
+    if (currentFighterId === id) return;
+
+    if (currentFighterId) {
+      document
+        .querySelector(`[data-id="hero-text-${currentFighterId}"]`)
+        ?.classList.add("hidden");
+      document
+        .querySelector(`[data-id="hero-image-${currentFighterId}"]`)
+        ?.classList.add("hidden");
+    }
+
+    $landing?.classList.add("hidden");
+
+    document
+      .querySelector(`[data-id="hero-text-${id}"]`)
+      ?.classList.remove("hidden");
+    document
+      .querySelector(`[data-id="hero-image-${id}"]`)
+      ?.classList.remove("hidden");
+
+    currentFighterId = id;
+  });
+</script>
