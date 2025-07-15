@@ -1,0 +1,7 @@
+---
+import { FIGHTERS } from "../../consts/fighters";
+const { id } = Astro.params;
+const fighter = FIGHTERS.find((fighter) => fighter.id === id);
+---
+
+<!-- Se renderiza la ruta que estamos viendo -->

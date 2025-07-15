@@ -81,6 +81,7 @@ const secondRow = FIGHTERS.slice(6);
         {
           FIGHTERS.map(({ id, name }) => (
             <img
+              transition:name={`image-${id}`}
               data-id={`hero-image-${id}`}
               src={`/images/fighters/big/${id}.png`}
               alt={name}
