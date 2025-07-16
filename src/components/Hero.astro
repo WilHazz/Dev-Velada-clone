@@ -140,6 +140,8 @@ const secondRow = FIGHTERS.slice(6);
         document
           .querySelector(`[data-id="hero-image-${currentFighterId}"]`)
           ?.classList.add("hidden");
+
+        currentFighterId = null;
       }
     });
 
