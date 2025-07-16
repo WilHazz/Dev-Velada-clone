@@ -55,25 +55,8 @@ const secondRow = FIGHTERS.slice(6);
 
     <div
       id="fighter-container"
-      class="pointer-events-none absolute inset-0 flex flex-col items-center"
+      class="pointer-events-none absolute inset-0 flex flex-col items-center justify-end pb-10"
     >
-      <!-- Fighter Text -->
-      <div
-        class="relative top-24 mx-auto h-20 flex w-full items-center justify-center"
-      >
-        {
-          FIGHTERS.map(({ id, name }) => (
-            <img
-              data-id={`hero-text-${id}`}
-              src={`/images/fighters/text/${id}.png`}
-              alt={name}
-              decoding="async"
-              class="w-auto h-full absolute hidden mask-fade-text"
-              fetchpriority="low"
-            />
-          ))
-        }
-      </div>
       <!-- Imagen Big -->
       <div
         class="mask-fade-bottom relative bottom-0 mx-auto h-[80vh] flex w-full items-center justify-center"
@@ -87,6 +70,23 @@ const secondRow = FIGHTERS.slice(6);
               alt={name}
               decoding="async"
               class="w-auto h-full absolute hidden"
+              fetchpriority="low"
+            />
+          ))
+        }
+      </div>
+      <!-- Fighter Text -->
+      <div
+        class="relative mx-auto h-20 flex w-full items-center justify-center z-10 transform -translate-y-24"
+      >
+        {
+          FIGHTERS.map(({ id, name }) => (
+            <img
+              data-id={`hero-text-${id}`}
+              src={`/images/fighters/text/${id}.png`}
+              alt={name}
+              decoding="async"
+              class="w-auto h-full absolute hidden mask-fade-text"
               fetchpriority="low"
             />
           ))

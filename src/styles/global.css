@@ -50,3 +50,10 @@ html {
 @utility mask-fade-bottom {
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
+
+/* Para agregar un filtro de gris a las imagenes */
+.dimmed {
+  filter: grayscale(1) brightness(0.6);
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
