@@ -1,8 +1,12 @@
 export const FIGHTERS = [
     {
-        id: 'peereira',
-        name: 'Peereira'
+        id: 'kam',
+        name: 'SiendoKam'
     },
+    // {
+    //     id: 'peereira',
+    //     name: 'Peereira'
+    // },
     {
         id: 'perxitaa',
         name: 'Perxitaa'
